@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Coffer"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="false"
              x:Class="Coffer.Views.HomePage">
 
     <StackLayout>

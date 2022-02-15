@@ -8,7 +8,7 @@ using Android.OS;
 
 namespace Coffer.Droid
 {
-    [Activity(Label = "Coffer", Theme = "@style/MainTheme", MainLauncher = true,
+    [Activity(Label = "Coffer", Icon = "@mipmap/CofferIcon", Theme = "@style/MainTheme", MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

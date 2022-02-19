@@ -6,6 +6,11 @@ using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
+[assembly: ExportFont("AvenirNext-Regular.ttf", Alias = "AN-R")]
+[assembly: ExportFont("AvenirNext-Bold.ttf", Alias = "AN-B")]
+[assembly: ExportFont("AvenirNext-UltraLight.ttf", Alias = "AN-U")]
+[assembly: ExportFont("AvenirNext-Medium.ttf", Alias = "AN-M")]
+
 namespace Coffer
 {
     public partial class App : Application
@@ -14,7 +19,7 @@ namespace Coffer
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new HomePage());
+            MainPage = new NavigationPage(new TabbedAppPage());
             NavigationDispatcher.Instance.Initialize(MainPage.Navigation);
         }
 

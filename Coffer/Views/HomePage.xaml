@@ -3,15 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Coffer"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:converters="clr-namespace:Coffer.Converters"
              ios:Page.UseSafeArea="true"
-             NavigationPage.HasNavigationBar="false"
+             Title="Home"
              x:Class="Coffer.Views.HomePage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:TimeToWelcomeConverter x:Key="TimeToWelcomeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout>
-        <Label Text="Good morning!"
-               FontFamily="Avenir"
-               FontSize="22"
-               FontAttributes="Bold"></Label>
+        <StackLayout Padding="15">
+            <Label Text="{Binding Converter={StaticResource TimeToWelcomeConverter}}"
+                   FontFamily="AN-M"
+                   FontSize="25"></Label>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>

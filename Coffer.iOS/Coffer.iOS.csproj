@@ -155,5 +155,10 @@
       <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\88.png" />
       <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="Resources\Icons\history@3x.png" />
+      <BundleResource Include="Resources\Icons\index@3x.png" />
+      <BundleResource Include="Resources\Icons\setting@3x.png" />
+    </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

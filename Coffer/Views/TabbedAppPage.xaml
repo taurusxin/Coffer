@@ -7,7 +7,7 @@
              NavigationPage.HasNavigationBar="false"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              android:TabbedPage.ToolbarPlacement="Bottom">
-    <pages:HomePage />
-    <pages:HistoryPage />
-    <pages:SettingPage />
+    <pages:HomePage IconImageSource="Icons/index"/>
+    <pages:HistoryPage IconImageSource="Icons/history"/>
+    <pages:SettingPage IconImageSource="Icons/setting"/>
 </TabbedPage>

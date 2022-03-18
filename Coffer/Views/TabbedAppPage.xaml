@@ -6,7 +6,8 @@
              xmlns:pages="clr-namespace:Coffer.Views"
              NavigationPage.HasNavigationBar="false"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-             android:TabbedPage.ToolbarPlacement="Bottom">
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             SelectedTabColor="Chocolate">
     <pages:HomePage IconImageSource="Icons/index"/>
     <pages:HistoryPage IconImageSource="Icons/history"/>
     <pages:SettingPage IconImageSource="Icons/setting"/>

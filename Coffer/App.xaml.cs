@@ -18,7 +18,7 @@ namespace Coffer
         public App()
         {
             InitializeComponent();
-
+            IocProvider.Init();
             MainPage = new NavigationPage(new TabbedAppPage());
             NavigationDispatcher.Instance.Initialize(MainPage.Navigation);
         }

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Coffer.ViewModels;
 using Xamarin.Forms;
+
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Coffer.Views
 {
@@ -12,6 +15,7 @@ namespace Coffer.Views
         public HomePage()
         {
             InitializeComponent();
+             BindingContext =  IocProvider.ServiceProvider.GetService<HomePageViewModel>();
         }
     }
 }

@@ -58,8 +58,14 @@
                                            WidthRequest="70"
                                            HeightRequest="70"></Image>
                                     
-                                    <StackLayout Orientation="Vertical" Padding="2" VerticalOptions="Center" Spacing="2">
-                                        <Label Text="{Binding BrandName}" FontSize="16" TextColor="Black"/>
+                                    <StackLayout Orientation="Vertical"
+                                                 Padding="2"
+                                                 VerticalOptions="Center"
+                                                 Spacing="2">
+                                        <Label Text="{Binding BrandName}"
+                                               FontFamily="AN-M"
+                                               FontSize="16"
+                                               TextColor="Black"/>
                                     </StackLayout>
                                     
                                 </StackLayout>
@@ -67,6 +73,10 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                
+                <Button Text="Update Database"
+                        Command="{Binding TestCommand}"></Button>
+                
             </StackLayout>
         </StackLayout>
     </StackLayout>

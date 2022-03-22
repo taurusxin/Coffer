@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace Coffer.ViewModels
 {
@@ -14,5 +15,7 @@ namespace Coffer.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        
+        public abstract Task Initialise();
     }
 }

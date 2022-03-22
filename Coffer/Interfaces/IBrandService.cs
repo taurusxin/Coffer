@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Coffer.Models;
 
 namespace Coffer.Interfaces
 {
     public interface IBrandService
     {
-        List<Brand> GetBrandsData();
+        Task<List<Brand>> GetBrandsAsync();
     }
 }

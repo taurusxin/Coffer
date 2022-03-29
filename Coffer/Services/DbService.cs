@@ -14,6 +14,8 @@ namespace Coffer.Services
         {
             _sqLiteConnection = new SQLiteAsyncConnection(Constants.DbPath);
             _sqLiteConnection.CreateTableAsync<Brand>().Wait();
+            _sqLiteConnection.CreateTableAsync<Coffee>().Wait();
+            _sqLiteConnection.CreateTableAsync<Content>().Wait();
         }
 
         public Task<List<Brand>> GetBrandsAsync()

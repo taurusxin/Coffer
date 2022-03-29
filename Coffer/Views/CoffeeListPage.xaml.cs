@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Coffer.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CoffeeView : ContentPage
+    public partial class CoffeeListPage : ContentPage
     {
-        public CoffeeView(Brand brand)
+        public CoffeeListPage(Brand brand)
         {
             InitializeComponent();
         }

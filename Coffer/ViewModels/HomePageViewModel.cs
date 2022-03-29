@@ -53,7 +53,7 @@ namespace Coffer.ViewModels
 
         private void NavigateToCoffeeView(Brand brand)
         {
-            var newPage = new CoffeeView(brand);
+            var newPage = new CoffeeListPage(brand);
             NavigationDispatcher.Instance.Navigation.PushAsync(newPage);
         }
 

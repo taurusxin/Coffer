@@ -16,15 +16,11 @@ namespace Coffer.Views
         public HomePage()
         {
             InitializeComponent();
-            BindingContext =  IocProvider.ServiceProvider.GetService<HomePageViewModel>();
-            SubscribeToEvents();
+            BindingContext = IocProvider.ServiceProvider.GetService<HomePageViewModel>();
+            Initialise();
         }
 
-        private void SubscribeToEvents()
-        {
-            Appearing += HomePage_Appearing;
-        }
-        private async void HomePage_Appearing(object sender, EventArgs e)
+        private async void Initialise()
         {
             try
             {

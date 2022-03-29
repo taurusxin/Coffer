@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Coffer.Interfaces;
 using Coffer.Models;
+using Coffer.Navigation;
 using Coffer.Services;
+using Coffer.Views;
 using Xamarin.Forms;
 
 namespace Coffer.ViewModels
@@ -16,6 +18,7 @@ namespace Coffer.ViewModels
     {
         public Brand SelectedBrand { get; set; }
         public ObservableCollection<Brand> ObBrands { get; set; } = new ObservableCollection<Brand>();
+        public Command GoToCoffeeCommand { get; set; }
         private readonly IBrandService _brandService;
 
         public ICommand TestCommand { get; set; }
@@ -23,8 +26,15 @@ namespace Coffer.ViewModels
         public HomePageViewModel(IBrandService brandService)
         {
             _brandService = brandService;
+            
+            InitializeCommands();
 
             TestCommand = new Command(Test);
+        }
+
+        private void InitializeCommands()
+        {
+            GoToCoffeeCommand = new Command<Brand>(NavigateToCoffeeView);
         }
         
         public override async Task Initialise()
@@ -39,6 +49,12 @@ namespace Coffer.ViewModels
             {
                 ObBrands = new ObservableCollection<Brand>();
             }
+        }
+
+        private void NavigateToCoffeeView(Brand brand)
+        {
+            var newPage = new CoffeeView(brand);
+            NavigationDispatcher.Instance.Navigation.PushAsync(newPage);
         }
 
         private void Test()

@@ -47,6 +47,8 @@
                           SeparatorVisibility="Default"
                           HasUnevenRows="True"
                           ItemsSource="{Binding ObBrands}"
+                          SelectedItem="{Binding SelectedBrand, Mode=TwoWay}"
+                          ItemSelected="ListView_OnItemSelected"
                           CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate>

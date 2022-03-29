@@ -31,5 +31,11 @@ namespace Coffer.Views
                 Debug.Fail(error.Message); //handle gracefully here
             }
         }
+
+        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var viewModel = BindingContext as HomePageViewModel;
+            viewModel.GoToCoffeeCommand.Execute(e.SelectedItem);
+        }
     }
 }

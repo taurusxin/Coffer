@@ -5,6 +5,7 @@
              x:Class="Coffer.Views.CoffeeListPage">
     <ContentPage.Content>
         <StackLayout>
+            <SearchBar Placeholder="Search coffee..."></SearchBar>
             <ListView HorizontalOptions="StartAndExpand"
                       VerticalOptions="FillAndExpand"
                       SeparatorColor="LightGray"

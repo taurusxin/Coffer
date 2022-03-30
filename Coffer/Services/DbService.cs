@@ -22,5 +22,10 @@ namespace Coffer.Services
         {
             return _sqLiteConnection.Table<Brand>().ToListAsync();
         }
+
+        public Task<List<Coffee>> GetCoffeeAsync(int brandId)
+        {
+            return _sqLiteConnection.QueryAsync<Coffee>("select * from Coffee where BrandId=?", brandId);
+        }
     }
 }

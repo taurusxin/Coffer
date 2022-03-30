@@ -35,7 +35,7 @@ namespace Coffer.Views
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var viewModel = BindingContext as HomePageViewModel;
-            viewModel.GoToCoffeeCommand.Execute(e.SelectedItem);
+            viewModel.GoToCoffeeCommand.Execute(viewModel.SelectedBrand);
         }
     }
 }

@@ -5,7 +5,20 @@
              x:Class="Coffer.Views.CoffeeListPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="pending..."></Label>
+            <ListView HorizontalOptions="StartAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      SeparatorColor="LightGray"
+                      SeparatorVisibility="Default"
+                      HasUnevenRows="True"
+                      CachingStrategy="RecycleElement"
+                      ItemsSource="{Binding ObCoffee}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding CoffeeName}">
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

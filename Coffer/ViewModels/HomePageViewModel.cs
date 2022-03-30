@@ -37,7 +37,7 @@ namespace Coffer.ViewModels
             GoToCoffeeCommand = new Command<Brand>(NavigateToCoffeeView);
         }
         
-        public override async Task Initialise()
+        public async Task Initialise()
         {
             ObBrands.Clear();
             var currentBrands = await _brandService.GetBrandsAsync();

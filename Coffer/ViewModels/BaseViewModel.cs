@@ -15,7 +15,5 @@ namespace Coffer.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        
-        public abstract Task Initialise();
     }
 }

@@ -12,6 +12,7 @@ namespace Coffer
             services.AddSingleton<IDbService, DbService>();
             
             services.AddSingleton<IBrandService, BrandService>();
+            services.AddSingleton<ICoffeeService, CoffeeService>();
 
             return services;
         }
@@ -26,6 +27,7 @@ namespace Coffer
         public static IServiceCollection ConfigureViewModels(this IServiceCollection services)
         {
             services.AddTransient<HomePageViewModel>();
+            services.AddTransient<CoffeeListPageViewModel>();
             
             return services;
         }

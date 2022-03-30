@@ -4,12 +4,8 @@ using Coffer.Models;
 
 namespace Coffer.Interfaces
 {
-    public interface IDbService
+    public interface IContentService
     {
-        Task<List<Brand>> GetBrandsAsync();
-
-        Task<List<Coffee>> GetCoffeeAsync(int brandId);
-
         Task<List<Content>> GetContentAsync(int CoffeeId);
     }
 }

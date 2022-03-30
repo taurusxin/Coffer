@@ -13,6 +13,7 @@ namespace Coffer
             
             services.AddSingleton<IBrandService, BrandService>();
             services.AddSingleton<ICoffeeService, CoffeeService>();
+            services.AddSingleton<IContentService, ContentService>();
 
             return services;
         }
@@ -28,6 +29,7 @@ namespace Coffer
         {
             services.AddTransient<HomePageViewModel>();
             services.AddTransient<CoffeeListPageViewModel>();
+            services.AddTransient<CoffeeDetailPageViewModel>();
             
             return services;
         }

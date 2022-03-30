@@ -2,29 +2,32 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Coffer.Interfaces;
 using Coffer.Models;
+using Coffer.Navigation;
+using Coffer.Views;
+using Xamarin.Forms;
 
 namespace Coffer.ViewModels
 {
     public class CoffeeListPageViewModel : BaseViewModel
     {
         private readonly ICoffeeService _coffeeService;
+        
+        public Command GoToContentCommand { get; set; }
+        
+        public Coffee SelectedCoffee { get; set; }
 
         public ObservableCollection<Coffee> ObCoffee { get; set; } = new ObservableCollection<Coffee>();
-
-        private int _count = 1111;
-        public int Count
-        {
-            get => _count;
-            set
-            {
-                _count = value;
-                OnPropertyChanged(nameof(Count));
-            }
-        }
 
         public CoffeeListPageViewModel(ICoffeeService coffeeService)
         {
             _coffeeService = coffeeService;
+
+            InitializeCommands();
+        }
+
+        private void InitializeCommands()
+        {
+            GoToContentCommand = new Command<Coffee>(NavigateToDetailView);
         }
         public async Task LoadCoffee(Brand brand)
         {
@@ -34,10 +37,12 @@ namespace Coffer.ViewModels
             {
                 currentCoffee.ForEach(coffee => ObCoffee.Add(coffee));
             }
-            else
-            {
-                ObCoffee = new ObservableCollection<Coffee>();
-            }
+        }
+        
+        private void NavigateToDetailView(Coffee coffee)
+        {
+            var newPage = new CoffeeDetailPage(coffee);
+            NavigationDispatcher.Instance.Navigation.PushAsync(newPage);
         }
     }
 }

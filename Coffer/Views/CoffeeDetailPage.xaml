@@ -2,22 +2,20 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Coffer.Views.CoffeeListPage">
+             x:Class="Coffer.Views.CoffeeDetailPage">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar Placeholder="Search coffee..."></SearchBar>
             <ListView HorizontalOptions="StartAndExpand"
                       VerticalOptions="FillAndExpand"
                       SeparatorColor="LightGray"
                       SeparatorVisibility="Default"
                       HasUnevenRows="True"
-                      ItemsSource="{Binding ObCoffee}"
-                      SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
-                      ItemTapped="ListView_OnItemTapped"
-                      CachingStrategy="RecycleElement">
+                      CachingStrategy="RecycleElement"
+                      ItemsSource="{Binding ObContent}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding CoffeeName}">
+                        <TextCell Text="{Binding SizeName}"
+                                  Detail="{Binding Caffeine}">
                         </TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

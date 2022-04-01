@@ -32,5 +32,15 @@ namespace Coffer.Services
         {
             return _sqLiteConnection.QueryAsync<Content>("select * from Content where CoffeeId=?", CoffeeId);
         }
+
+        public Task<Coffee> GetCoffeeByIdAsync(int coffeeId)
+        {
+            return _sqLiteConnection.Table<Coffee>().FirstOrDefaultAsync(c => c.Id == coffeeId);
+        }
+
+        public Task<Brand> GetBrandByIdAsync(int brandId)
+        {
+            return _sqLiteConnection.Table<Brand>().FirstOrDefaultAsync(b => b.Id == brandId);
+        }
     }
 }

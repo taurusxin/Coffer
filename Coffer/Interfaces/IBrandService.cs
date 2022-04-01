@@ -7,5 +7,7 @@ namespace Coffer.Interfaces
     public interface IBrandService
     {
         Task<List<Brand>> GetBrandsAsync();
+
+        Task<Brand> GetBrandByIdAsync(int brandId);
     }
 }

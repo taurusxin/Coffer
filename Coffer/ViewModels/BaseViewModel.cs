@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace Coffer.ViewModels
 {
-    public abstract class BaseViewModel
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
-        protected event PropertyChangedEventHandler PropertyChanged;
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)

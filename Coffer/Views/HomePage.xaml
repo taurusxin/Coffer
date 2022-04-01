@@ -16,30 +16,35 @@
     </ContentPage.Resources>
 
     <StackLayout>
-        <StackLayout Padding="15">
-            <Label Text="{Binding Converter={StaticResource TimeToWelcomeConverter}}"
-                   FontFamily="AN-M"
-                   FontSize="30"></Label>
-            <StackLayout Padding="0, 15, 0, 0">
-                <Label Text="Your today caffeine intake total (mg)"
-                       FontFamily="AN-M"></Label>
-                
-                <StackLayout Padding="0, 10, 0, 10">
-                    <ProgressBar Progress=".78"
-                                 VerticalOptions="CenterAndExpand"
-                                 ProgressColor="Chocolate"/>
-                </StackLayout>
-                
-                <Label Text="0 / 300"
+        <StackLayout>
+            <StackLayout Padding="15">
+                <Label Text="{Binding Converter={StaticResource TimeToWelcomeConverter}}"
                        FontFamily="AN-M"
-                       FontSize="25"
-                       HorizontalTextAlignment="End"></Label>
+                       FontSize="30"></Label>
+                <StackLayout Padding="0, 15, 0, 0">
+                    <Label Text="Your today caffeine intake total (mg)"
+                           FontFamily="AN-M"></Label>
+                
+                    <StackLayout Padding="0, 10, 0, 10">
+                        <ProgressBar Progress=".78"
+                                     VerticalOptions="CenterAndExpand"
+                                     ProgressColor="Chocolate"/>
+                    </StackLayout>
+                
+                    <Label Text="0 / 300"
+                           FontFamily="AN-M"
+                           FontSize="25"
+                           HorizontalTextAlignment="End"></Label>
+                </StackLayout>
             </StackLayout>
+
             
             <StackLayout>
-                <Label Text="Drink Brands"
-                       FontFamily="AN-M">
-                </Label>
+                <StackLayout Padding="15, 10, 0, 0">
+                    <Label Text="Select Drink Brand"
+                           FontFamily="AN-M">
+                    </Label>
+                </StackLayout>
                 
                 <ListView HorizontalOptions="StartAndExpand"
                           VerticalOptions="FillAndExpand"
@@ -48,13 +53,13 @@
                           HasUnevenRows="True"
                           ItemsSource="{Binding ObBrands}"
                           SelectedItem="{Binding SelectedBrand, Mode=TwoWay}"
-                          ItemSelected="ListView_OnItemSelected"
+                          ItemTapped="ListView_OnItemTapped"
                           CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal"
-                                             Padding="5" VerticalOptions="FillAndExpand"
+                                             Padding="10" VerticalOptions="FillAndExpand"
                                              MinimumHeightRequest="100">
                                     <Image Source="{Binding BrandIcon}"
                                            WidthRequest="70"
@@ -66,8 +71,7 @@
                                                  Spacing="2">
                                         <Label Text="{Binding BrandName}"
                                                FontFamily="AN-M"
-                                               FontSize="16"
-                                               TextColor="Black"/>
+                                               FontSize="16"/>
                                     </StackLayout>
                                     
                                 </StackLayout>

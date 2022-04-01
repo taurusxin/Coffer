@@ -30,6 +30,7 @@ namespace Coffer
             services.AddTransient<HomePageViewModel>();
             services.AddTransient<CoffeeListPageViewModel>();
             services.AddTransient<CoffeeDetailPageViewModel>();
+            services.AddTransient<AddHistoryPageViewModel>();
             
             return services;
         }

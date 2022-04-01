@@ -2,13 +2,31 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              x:Class="Coffer.Views.SettingPage"
+             ios:Page.UseSafeArea="true"
              Title="Setting">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Setting Page"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="About">
+                        <TextCell Text="Author"
+                                  Detail="Yuxin Zhang"></TextCell>
+                        <TextCell Text="Website"
+                                  Detail="https://icoffer.app"></TextCell>
+                    </TableSection>
+                
+                    <TableSection Title="Database">
+                        <SwitchCell Text="Auto Update" />
+                    </TableSection>
+                    
+                    <TableSection Title="Submit New Brand">
+                        <EntryCell Label="Name"
+                                   Placeholder="Starbucks"></EntryCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

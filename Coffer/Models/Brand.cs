@@ -1,3 +1,5 @@
+using Coffer.ViewModels;
+
 namespace Coffer.Models
 {
     public class Brand

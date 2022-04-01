@@ -2,7 +2,8 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Coffer.Views.CoffeeDetailPage">
+             x:Class="Coffer.Views.CoffeeDetailPage"
+             Title="Cup Size">
     <ContentPage.Content>
         <StackLayout>
             <ListView HorizontalOptions="StartAndExpand"
@@ -11,11 +12,13 @@
                       SeparatorVisibility="Default"
                       HasUnevenRows="True"
                       CachingStrategy="RecycleElement"
-                      ItemsSource="{Binding ObContent}">
+                      ItemsSource="{Binding ObContent}"
+                      SelectedItem="{Binding SelectedContent, Mode=TwoWay}"
+                      ItemTapped="ListView_OnItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding SizeName}"
-                                  Detail="{Binding Caffeine}">
+                                  Detail="{Binding Caffeine, StringFormat=\{0\}mg}">
                         </TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

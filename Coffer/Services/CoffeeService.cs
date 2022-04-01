@@ -18,5 +18,10 @@ namespace Coffer.Services
         {
             return _dbService.GetCoffeeAsync(brandId);
         }
+
+        public Task<Coffee> GetCoffeeByIdAsync(int coffeeId)
+        {
+            return _dbService.GetCoffeeByIdAsync(coffeeId);
+        }
     }
 }

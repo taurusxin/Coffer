@@ -24,5 +24,11 @@ namespace Coffer.Views
                 viewModel.LoadContent(coffee);
             }
         }
+
+        private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var viewModel = BindingContext as CoffeeDetailPageViewModel;
+            viewModel.GoToAddHistoryCommand.Execute(viewModel.SelectedContent);
+        }
     }
 }

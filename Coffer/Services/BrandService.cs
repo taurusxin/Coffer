@@ -16,5 +16,10 @@ namespace Coffer.Services
         {
             return await _dbService.GetBrandsAsync();
         }
+
+        public async Task<Brand> GetBrandByIdAsync(int brandId)
+        {
+            return await _dbService.GetBrandByIdAsync(brandId);
+        }
     }
 }

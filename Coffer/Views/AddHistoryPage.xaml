@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Coffer.Views.AddHistoryPage"
+             Title="Confirm Add">
+    <ContentPage.Content>
+        <StackLayout Padding="15"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand">
+            <Label Text="{Binding Brand, Mode=TwoWay}"
+                   FontFamily="AN-R"
+                   FontSize="28"
+                   HorizontalTextAlignment="Center">
+            </Label>
+            <Label Text="{Binding CoffeeAndContent, Mode=TwoWay}"
+                   FontFamily="AN-R"
+                   FontSize="20"
+                   HorizontalTextAlignment="Center">
+            </Label>
+            
+            <StackLayout Orientation="Horizontal"
+                         Spacing="80"
+                         HorizontalOptions="Center"
+                         Padding="10">
+                <Label Text="Count: "
+                       VerticalTextAlignment="Center"
+                       FontFamily="AN-R"></Label>
+                <Entry Placeholder="Count"
+                       Text="1"
+                       FontFamily="AN-R"></Entry>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal"
+                         Spacing="110"
+                         HorizontalOptions="Center">
+                <Label Text="Caffeine: "
+                       VerticalTextAlignment="Center"
+                       FontFamily="AN-R"></Label>
+                <Label Text="370"
+                       FontFamily="AN-R"></Label>
+            </StackLayout>
+               
+            <Button Text="Confirm Add"
+                    FontSize="20"
+                    Padding="20"
+                    FontFamily="AN-R"></Button>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

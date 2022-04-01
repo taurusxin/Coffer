@@ -17,5 +17,7 @@ namespace Coffer.Interfaces
         Task<Brand> GetBrandByIdAsync(int brandId);
 
         Task<List<History>> GetHistoriesAsync();
+
+        Task<int> SaveHistory(History history);
     }
 }

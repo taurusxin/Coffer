@@ -48,5 +48,10 @@ namespace Coffer.Services
         {
             return _sqLiteConnection.Table<History>().ToListAsync();
         }
+
+        public Task<int> SaveHistory(History history)
+        {
+            return _sqLiteConnection.InsertAsync(history);
+        }
     }
 }

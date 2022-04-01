@@ -18,5 +18,10 @@ namespace Coffer.Services
         {
             return _dbService.GetHistoriesAsync();
         }
+
+        public Task<int> SaveHistory(History history)
+        {
+            return _dbService.SaveHistory(history);
+        }
     }
 }

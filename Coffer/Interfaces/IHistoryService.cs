@@ -7,5 +7,7 @@ namespace Coffer.Interfaces
     public interface IHistoryService
     {
         Task<List<History>> GetHistoriesAsync();
+
+        Task<int> SaveHistory(History history);
     }
 }

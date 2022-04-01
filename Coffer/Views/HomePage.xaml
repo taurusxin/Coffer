@@ -16,7 +16,10 @@
     </ContentPage.Resources>
 
     <StackLayout>
-        <StackLayout>
+        <Frame Margin="10"
+               BorderColor="Gainsboro"
+               CornerRadius="20"
+               HasShadow="False">
             <StackLayout Padding="15">
                 <Label Text="{Binding Converter={StaticResource TimeToWelcomeConverter}}"
                        FontFamily="AN-M"
@@ -24,66 +27,65 @@
                 <StackLayout Padding="0, 15, 0, 0">
                     <Label Text="Your today caffeine intake total (mg)"
                            FontFamily="AN-M"></Label>
-                
+            
                     <StackLayout Padding="0, 10, 0, 10">
                         <ProgressBar Progress=".78"
                                      VerticalOptions="CenterAndExpand"
                                      ProgressColor="Chocolate"/>
                     </StackLayout>
-                
+            
                     <Label Text="0 / 300"
                            FontFamily="AN-M"
                            FontSize="25"
                            HorizontalTextAlignment="End"></Label>
                 </StackLayout>
             </StackLayout>
+        </Frame>
 
-            
-            <StackLayout>
-                <StackLayout Padding="15, 10, 0, 0">
-                    <Label Text="Select Drink Brand"
-                           FontFamily="AN-M">
-                    </Label>
-                </StackLayout>
-                
-                <ListView HorizontalOptions="StartAndExpand"
-                          VerticalOptions="FillAndExpand"
-                          SeparatorColor="LightGray"
-                          SeparatorVisibility="Default"
-                          HasUnevenRows="True"
-                          ItemsSource="{Binding ObBrands}"
-                          SelectedItem="{Binding SelectedBrand, Mode=TwoWay}"
-                          ItemTapped="ListView_OnItemTapped"
-                          CachingStrategy="RecycleElement">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal"
-                                             Padding="10" VerticalOptions="FillAndExpand"
-                                             MinimumHeightRequest="100">
-                                    <Image Source="{Binding BrandIcon}"
-                                           WidthRequest="70"
-                                           HeightRequest="70"></Image>
-                                    
-                                    <StackLayout Orientation="Vertical"
-                                                 Padding="2"
-                                                 VerticalOptions="Center"
-                                                 Spacing="2">
-                                        <Label Text="{Binding BrandName}"
-                                               FontFamily="AN-M"
-                                               FontSize="16"/>
-                                    </StackLayout>
-                                    
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                
-                <Button Text="Update Database"
-                        Command="{Binding TestCommand}"></Button>
-                
+        <StackLayout>
+            <StackLayout Padding="15, 10, 0, 0">
+                <Label Text="Select Drink Brand"
+                       FontFamily="AN-M">
+                </Label>
             </StackLayout>
+            
+            <ListView HorizontalOptions="StartAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      SeparatorColor="LightGray"
+                      SeparatorVisibility="Default"
+                      HasUnevenRows="True"
+                      ItemsSource="{Binding ObBrands}"
+                      SelectedItem="{Binding SelectedBrand, Mode=TwoWay}"
+                      ItemTapped="ListView_OnItemTapped"
+                      CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         Padding="10" VerticalOptions="FillAndExpand"
+                                         MinimumHeightRequest="100">
+                                <Image Source="{Binding BrandIcon}"
+                                       WidthRequest="70"
+                                       HeightRequest="70"></Image>
+                                
+                                <StackLayout Orientation="Vertical"
+                                             Padding="2"
+                                             VerticalOptions="Center"
+                                             Spacing="2">
+                                    <Label Text="{Binding BrandName}"
+                                           FontFamily="AN-M"
+                                           FontSize="16"/>
+                                </StackLayout>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Button Text="Update Database"
+                    Command="{Binding TestCommand}"></Button>
+            
         </StackLayout>
     </StackLayout>
 

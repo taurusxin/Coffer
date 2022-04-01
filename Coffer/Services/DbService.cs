@@ -16,6 +16,7 @@ namespace Coffer.Services
             _sqLiteConnection.CreateTableAsync<Brand>().Wait();
             _sqLiteConnection.CreateTableAsync<Coffee>().Wait();
             _sqLiteConnection.CreateTableAsync<Content>().Wait();
+            _sqLiteConnection.CreateTableAsync<History>().Wait();
         }
 
         public Task<List<Brand>> GetBrandsAsync()
@@ -41,6 +42,11 @@ namespace Coffer.Services
         public Task<Brand> GetBrandByIdAsync(int brandId)
         {
             return _sqLiteConnection.Table<Brand>().FirstOrDefaultAsync(b => b.Id == brandId);
+        }
+
+        public Task<List<History>> GetHistoriesAsync()
+        {
+            return _sqLiteConnection.Table<History>().ToListAsync();
         }
     }
 }

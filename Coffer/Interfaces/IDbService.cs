@@ -15,5 +15,7 @@ namespace Coffer.Interfaces
         Task<Coffee> GetCoffeeByIdAsync(int coffeeId);
 
         Task<Brand> GetBrandByIdAsync(int brandId);
+
+        Task<List<History>> GetHistoriesAsync();
     }
 }

@@ -19,5 +19,7 @@ namespace Coffer.Interfaces
         Task<List<History>> GetHistoriesAsync();
 
         Task<int> SaveHistory(History history);
+        
+        Task<int> DeleteHistory(History history);
     }
 }

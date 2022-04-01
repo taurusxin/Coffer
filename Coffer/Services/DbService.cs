@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Coffer.Interfaces;
 using Coffer.Models;
 using SQLite;
+using SQLitePCL;
 
 namespace Coffer.Services
 {
@@ -52,6 +53,11 @@ namespace Coffer.Services
         public Task<int> SaveHistory(History history)
         {
             return _sqLiteConnection.InsertAsync(history);
+        }
+
+        public Task<int> DeleteHistory(History history)
+        {
+            return _sqLiteConnection.DeleteAsync(history);
         }
     }
 }

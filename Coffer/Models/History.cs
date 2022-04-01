@@ -14,6 +14,8 @@ namespace Coffer.Models
         public double Count { get; set; }
         
         public string Size { get; set; }
+        
+        public string BrandName { get; set; }
         public double TotalCaffeine { get; set; }
     }
 }

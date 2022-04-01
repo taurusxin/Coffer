@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Coffer.Interfaces;
 using Coffer.Models;
 using Coffer.Navigation;
+using Coffer.Views;
 using Xamarin.Forms;
 
 namespace Coffer.ViewModels
@@ -116,12 +117,16 @@ namespace Coffer.ViewModels
         private void ConfirmAdd()
         {
             History history = new History();
-            history.Count = this._count;
-            history.Datetime = DateTime.Now;
             history.ContentId = temp_content.Id;
+            history.Datetime = DateTime.Now;
+            history.CoffeeName = Coffee;
+            history.Count = Count;
+            history.Size = Content;
+            history.BrandName = Brand;
             history.TotalCaffeine = Caffeine;
             _historyService.SaveHistory(history);
             NavigationDispatcher.Instance.Navigation.PopToRootAsync();
+            MessagingCenter.Send(this, "RefreshHistories");
         }
 
         public async Task LoadData(Content content)

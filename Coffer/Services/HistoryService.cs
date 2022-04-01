@@ -23,5 +23,10 @@ namespace Coffer.Services
         {
             return _dbService.SaveHistory(history);
         }
+
+        public Task<int> DeleteHistory(History history)
+        {
+            return _dbService.DeleteHistory(history);
+        }
     }
 }

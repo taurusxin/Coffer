@@ -14,6 +14,7 @@ namespace Coffer
             services.AddSingleton<IBrandService, BrandService>();
             services.AddSingleton<ICoffeeService, CoffeeService>();
             services.AddSingleton<IContentService, ContentService>();
+            services.AddSingleton<IHistoryService, HistoryService>();
 
             return services;
         }

@@ -1,6 +1,8 @@
+using System;
 using System.Threading.Tasks;
 using Coffer.Interfaces;
 using Coffer.Models;
+using Coffer.Navigation;
 using Xamarin.Forms;
 
 namespace Coffer.ViewModels
@@ -9,6 +11,7 @@ namespace Coffer.ViewModels
     {
         private readonly ICoffeeService _coffeeService;
         private readonly IBrandService _brandService;
+        private readonly IHistoryService _historyService;
 
         private string _brand;
         private string _coffee;
@@ -54,16 +57,79 @@ namespace Coffer.ViewModels
                 OnPropertyChanged(nameof(CoffeeAndContent));
             }
         }
-        
-        public AddHistoryPageViewModel(IBrandService brandService, ICoffeeService coffeeService)
+
+        private double _count;
+
+        public double Count
+        {
+            get => _count;
+            set
+            {
+                _count = value;
+                ConfirmAddCommand.ChangeCanExecute();
+                Caffeine = value * _caffeinePerCup;
+                OnPropertyChanged(nameof(Count));
+            }
+        }
+
+        private double _caffeinePerCup;
+        private double _caffeine = 0;
+
+        public double Caffeine
+        {
+            get => _caffeine;
+            set
+            {
+                if (value > 0)
+                {
+                    _caffeine = value;
+                }
+                else
+                {
+                    _caffeine = 0;
+                }
+                OnPropertyChanged(nameof(Caffeine));
+            }
+        }
+
+        public Command ConfirmAddCommand { get; set; }
+        public AddHistoryPageViewModel(
+            IBrandService brandService,
+            ICoffeeService coffeeService,
+            IHistoryService historyService)
         {
             _brandService = brandService;
             _coffeeService = coffeeService;
+            _historyService = historyService;
+            
+            InitializeCommands();
+            Count = 1;
+        }
+
+        private void InitializeCommands()
+        {
+            ConfirmAddCommand = new Command(ConfirmAdd, () => _count > 0);
+        }
+
+        private Content temp_content;
+
+        private void ConfirmAdd()
+        {
+            History history = new History();
+            history.Count = this._count;
+            history.Datetime = DateTime.Now;
+            history.ContentId = temp_content.Id;
+            history.TotalCaffeine = Caffeine;
+            _historyService.SaveHistory(history);
+            NavigationDispatcher.Instance.Navigation.PopToRootAsync();
         }
 
         public async Task LoadData(Content content)
         {
+            temp_content = content;
             Content = content.SizeName;
+            _caffeinePerCup = content.Caffeine;
+            Caffeine = _caffeinePerCup;
             var coffee = await _coffeeService.GetCoffeeByIdAsync(content.CoffeeId);
             var brand = await _brandService.GetBrandByIdAsync(coffee.BrandId);
             Brand = brand.BrandName;

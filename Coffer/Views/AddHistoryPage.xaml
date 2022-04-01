@@ -1,9 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Coffer.Views.AddHistoryPage"
-             Title="Confirm Add">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Coffer.Views.AddHistoryPage" Title="Confirm Add">
     <ContentPage.Content>
         <StackLayout Padding="15"
                      VerticalOptions="CenterAndExpand"
@@ -11,41 +7,64 @@
             <Label Text="{Binding Brand, Mode=TwoWay}"
                    FontFamily="AN-R"
                    FontSize="28"
-                   HorizontalTextAlignment="Center">
-            </Label>
+                   HorizontalTextAlignment="Center"></Label>
             <Label Text="{Binding CoffeeAndContent, Mode=TwoWay}"
-                   FontFamily="AN-R"
-                   FontSize="20"
-                   HorizontalTextAlignment="Center">
-            </Label>
+                   FontFamily="AN-R" FontSize="20"
+                   HorizontalTextAlignment="Center"></Label>
             
-            <StackLayout Orientation="Horizontal"
-                         Spacing="80"
-                         HorizontalOptions="Center"
-                         Padding="10">
-                <Label Text="Count: "
+            <Grid Padding="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"></RowDefinition>
+                    <RowDefinition Height="35"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Label Text="Count:"
+                       FontFamily="AN-R"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalTextAlignment="End"
+                       VerticalTextAlignment="Center">
+                </Label>
+                
+                <StackLayout Grid.Row="0"
+                             Grid.Column="1">
+                    <Entry Placeholder="Count"
+                           Text="{Binding Count, Mode=TwoWay}"
+                           FontFamily="AN-R"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="End"
+                           WidthRequest="80">
+                    </Entry>
+                </StackLayout>
+                
+                <Label Text="Caffeine:"
+                       FontFamily="AN-R"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       HorizontalTextAlignment="End"
+                       VerticalTextAlignment="Center">
+                </Label>
+                
+                <Label Text="{Binding Caffeine}"
+                       FontFamily="AN-R"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
-                       FontFamily="AN-R"></Label>
-                <Entry Placeholder="Count"
-                       Text="1"
-                       FontFamily="AN-R"></Entry>
-            </StackLayout>
+                       HorizontalOptions="End"
+                       WidthRequest="80"></Label>
+                
+            </Grid>
             
-            <StackLayout Orientation="Horizontal"
-                         Spacing="110"
-                         HorizontalOptions="Center">
-                <Label Text="Caffeine: "
-                       VerticalTextAlignment="Center"
-                       FontFamily="AN-R"></Label>
-                <Label Text="370"
-                       FontFamily="AN-R"></Label>
-            </StackLayout>
-               
             <Button Text="Confirm Add"
                     FontSize="20"
                     Padding="20"
-                    FontFamily="AN-R"></Button>
-            
+                    FontFamily="AN-R"
+                    Command="{Binding ConfirmAddCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

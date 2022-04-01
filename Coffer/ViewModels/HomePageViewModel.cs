@@ -45,10 +45,6 @@ namespace Coffer.ViewModels
             {
                 currentBrands.ForEach(brand => ObBrands.Add(brand));
             }
-            else
-            {
-                ObBrands = new ObservableCollection<Brand>();
-            }
         }
 
         private void NavigateToCoffeeView(Brand brand)

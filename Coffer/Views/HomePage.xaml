@@ -16,7 +16,7 @@
     </ContentPage.Resources>
 
     <StackLayout>
-        <Frame Margin="10"
+        <Frame Margin="10, 0"
                BorderColor="Gainsboro"
                CornerRadius="20"
                HasShadow="False">
@@ -43,8 +43,8 @@
         </Frame>
 
         <StackLayout>
-            <StackLayout Padding="15, 10, 0, 0">
-                <Label Text="Select Drink Brand"
+            <StackLayout Padding="25, 10, 0, 0">
+                <Label Text="Drink Brands"
                        FontFamily="AN-M">
                 </Label>
             </StackLayout>
@@ -58,11 +58,11 @@
                       SelectedItem="{Binding SelectedBrand, Mode=TwoWay}"
                       ItemTapped="ListView_OnItemTapped"
                       CachingStrategy="RecycleElement">
-                <ListView.ItemTemplate>
+                <ListView.ItemTemplate> 
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal"
-                                         Padding="10" VerticalOptions="FillAndExpand"
+                                         Padding="25, 10" VerticalOptions="FillAndExpand"
                                          MinimumHeightRequest="100">
                                 <Image Source="{Binding BrandIcon}"
                                        WidthRequest="70"
@@ -76,17 +76,11 @@
                                            FontFamily="AN-M"
                                            FontSize="16"/>
                                 </StackLayout>
-                                
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <Button Text="Update Database"
-                    Command="{Binding TestCommand}"></Button>
-            
         </StackLayout>
     </StackLayout>
-
 </ContentPage>

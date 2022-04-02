@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using Coffer.Navigation;
 using Coffer.Views;
 using Xamarin.Forms;
@@ -25,7 +26,10 @@ namespace Coffer
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            if (Settings.Settings.FirstRun)
+            {
+                Settings.Settings.FirstRun = false;
+            }
         }
 
         protected override void OnSleep()

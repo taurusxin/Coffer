@@ -13,6 +13,10 @@ namespace Coffer.Services
         
         public DbService()
         {
+            if (!Settings.Settings.HasDB)
+            {
+                Settings.Settings.DownloadDB();
+            }
             _sqLiteConnection = new SQLiteAsyncConnection(Constants.DbPath);
             _sqLiteConnection.CreateTableAsync<Brand>().Wait();
             _sqLiteConnection.CreateTableAsync<Coffee>().Wait();

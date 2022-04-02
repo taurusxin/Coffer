@@ -3,13 +3,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:converters="clr-namespace:Coffer.Converters;assembly=Coffer"
              x:Class="Coffer.Views.HistoryPage"
              ios:Page.UseSafeArea="true"
              Title="History">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ReverseBoolConverter x:Key="ReverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout IsVisible="{Binding HasItems, Converter={StaticResource ReverseBoolConverter}}"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+                <Label Text="Nothing here, try add one!"
+                       FontFamily="AN-R"></Label>
+            </StackLayout>
             <ListView HorizontalOptions="StartAndExpand"
                       VerticalOptions="FillAndExpand"
+                      IsVisible="{Binding HasItems}"
                       SeparatorColor="LightGray"
                       SeparatorVisibility="Default"
                       HasUnevenRows="True"

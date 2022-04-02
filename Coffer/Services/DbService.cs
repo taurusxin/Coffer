@@ -9,7 +9,8 @@ namespace Coffer.Services
 {
     public class DbService : IDbService
     {
-        private readonly SQLiteAsyncConnection _sqLiteConnection;
+        private readonly SQLiteAsyncConnection _sqliteDataConnection;
+        private readonly SQLiteAsyncConnection _sqliteUserConnection;
         
         public DbService()
         {
@@ -17,51 +18,54 @@ namespace Coffer.Services
             {
                 Settings.Settings.DownloadDB();
             }
-            _sqLiteConnection = new SQLiteAsyncConnection(Constants.DbPath);
-            _sqLiteConnection.CreateTableAsync<Brand>().Wait();
-            _sqLiteConnection.CreateTableAsync<Coffee>().Wait();
-            _sqLiteConnection.CreateTableAsync<Content>().Wait();
-            _sqLiteConnection.CreateTableAsync<History>().Wait();
+            _sqliteDataConnection = new SQLiteAsyncConnection(Constants.DbPath);
+            _sqliteUserConnection = new SQLiteAsyncConnection(Constants.UserDbPath);
+
+            _sqliteDataConnection.CreateTableAsync<Brand>().Wait();
+            _sqliteDataConnection.CreateTableAsync<Coffee>().Wait();
+            _sqliteDataConnection.CreateTableAsync<Content>().Wait();
+            
+            _sqliteUserConnection.CreateTableAsync<History>().Wait();
         }
 
         public Task<List<Brand>> GetBrandsAsync()
         {
-            return _sqLiteConnection.Table<Brand>().ToListAsync();
+            return _sqliteDataConnection.Table<Brand>().ToListAsync();
         }
 
         public Task<List<Coffee>> GetCoffeeAsync(int brandId)
         {
-            return _sqLiteConnection.QueryAsync<Coffee>("select * from Coffee where BrandId=?", brandId);
+            return _sqliteDataConnection.QueryAsync<Coffee>("select * from Coffee where BrandId=?", brandId);
         }
 
         public Task<List<Content>> GetContentAsync(int CoffeeId)
         {
-            return _sqLiteConnection.QueryAsync<Content>("select * from Content where CoffeeId=?", CoffeeId);
+            return _sqliteDataConnection.QueryAsync<Content>("select * from Content where CoffeeId=?", CoffeeId);
         }
 
         public Task<Coffee> GetCoffeeByIdAsync(int coffeeId)
         {
-            return _sqLiteConnection.Table<Coffee>().FirstOrDefaultAsync(c => c.Id == coffeeId);
+            return _sqliteDataConnection.Table<Coffee>().FirstOrDefaultAsync(c => c.Id == coffeeId);
         }
 
         public Task<Brand> GetBrandByIdAsync(int brandId)
         {
-            return _sqLiteConnection.Table<Brand>().FirstOrDefaultAsync(b => b.Id == brandId);
+            return _sqliteDataConnection.Table<Brand>().FirstOrDefaultAsync(b => b.Id == brandId);
         }
 
         public Task<List<History>> GetHistoriesAsync()
         {
-            return _sqLiteConnection.Table<History>().OrderByDescending(h => h.Id).ToListAsync();
+            return _sqliteUserConnection.Table<History>().OrderByDescending(h => h.Id).ToListAsync();
         }
 
         public Task<int> SaveHistory(History history)
         {
-            return _sqLiteConnection.InsertAsync(history);
+            return _sqliteUserConnection.InsertAsync(history);
         }
 
         public Task<int> DeleteHistory(History history)
         {
-            return _sqLiteConnection.DeleteAsync(history);
+            return _sqliteUserConnection.DeleteAsync(history);
         }
     }
 }

@@ -18,18 +18,35 @@ namespace Coffer.Views
             InitializeComponent();
             BindingContext = IocProvider.ServiceProvider.GetService<HomePageViewModel>();
             Initialise();
+            SubscribeEvents();
         }
 
-        private async void Initialise()
+        private async Task Initialise()
         {
             try
             {
-                await (BindingContext as HomePageViewModel).Initialise();
+                var viewModel = BindingContext as HomePageViewModel;
+                await viewModel.Initialise();
+                await viewModel.LoadProgress();
             }
             catch (Exception error)
             {
                 Debug.Fail(error.Message); //handle gracefully here
             }
+        }
+
+        private void SubscribeEvents()
+        {
+            MessagingCenter.Subscribe<AddHistoryPageViewModel>(this, "LoadProgress", (sender) =>
+            {
+                var viewModel = BindingContext as HomePageViewModel;
+                viewModel.LoadProgress();
+            });
+            MessagingCenter.Subscribe<HistoryPageViewModel>(this, "LoadProgress", (sender) =>
+            {
+                var viewModel = BindingContext as HomePageViewModel;
+                viewModel.LoadProgress();
+            });
         }
 
         private void ListView_OnItemTapped(object sender, ItemTappedEventArgs e)

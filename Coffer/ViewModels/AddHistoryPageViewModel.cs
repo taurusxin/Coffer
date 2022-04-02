@@ -127,6 +127,7 @@ namespace Coffer.ViewModels
             _historyService.SaveHistory(history);
             NavigationDispatcher.Instance.Navigation.PopToRootAsync();
             MessagingCenter.Send(this, "RefreshHistories");
+            MessagingCenter.Send(this, "LoadProgress");
         }
 
         public async Task LoadData(Content content)

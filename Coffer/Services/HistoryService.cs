@@ -28,5 +28,10 @@ namespace Coffer.Services
         {
             return _dbService.DeleteHistory(history);
         }
+
+        public Task<int> GetTodayCaffeine()
+        {
+            return _dbService.GetTodayCaffeineAsync();
+        }
     }
 }

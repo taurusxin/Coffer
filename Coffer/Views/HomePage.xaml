@@ -29,12 +29,12 @@
                            FontFamily="AN-M"></Label>
             
                     <StackLayout Padding="0, 10, 0, 10">
-                        <ProgressBar Progress=".78"
+                        <ProgressBar Progress="{Binding Progress}"
                                      VerticalOptions="CenterAndExpand"
                                      ProgressColor="Chocolate"/>
                     </StackLayout>
             
-                    <Label Text="0 / 300"
+                    <Label Text="{Binding TodayIntake, StringFormat='{}{0} / 300'}"
                            FontFamily="AN-M"
                            FontSize="25"
                            HorizontalTextAlignment="End"></Label>

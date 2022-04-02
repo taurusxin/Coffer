@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Coffer.Interfaces;
@@ -19,7 +20,7 @@ namespace Coffer.Services
                 Settings.Settings.DownloadDB();
             }
             _sqliteDataConnection = new SQLiteAsyncConnection(Constants.DbPath);
-            _sqliteUserConnection = new SQLiteAsyncConnection(Constants.UserDbPath);
+            _sqliteUserConnection = new SQLiteAsyncConnection(Constants.UserDbPath, false);
 
             _sqliteDataConnection.CreateTableAsync<Brand>().Wait();
             _sqliteDataConnection.CreateTableAsync<Coffee>().Wait();
@@ -66,6 +67,11 @@ namespace Coffer.Services
         public Task<int> DeleteHistory(History history)
         {
             return _sqliteUserConnection.DeleteAsync(history);
+        }
+
+        public Task<int> GetTodayCaffeineAsync()
+        {
+            return _sqliteUserConnection.ExecuteScalarAsync<int>("select sum(TotalCaffeine) from History where Date(Datetime) = DATE()");
         }
     }
 }

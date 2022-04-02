@@ -17,15 +17,41 @@ namespace Coffer.ViewModels
     public class HomePageViewModel : BaseViewModel
     {
         public Brand SelectedBrand { get; set; }
+
+        private double _progress;
+        private double _todayIntake;
+
+        public double Progress
+        {
+            get => _progress;
+            set
+            {
+                _progress = value;
+                OnPropertyChanged(nameof(Progress));
+            }
+        }
+
+        public double TodayIntake
+        {
+            get => _todayIntake;
+            set
+            {
+                _todayIntake = value;
+                OnPropertyChanged(nameof(TodayIntake));
+            }
+        }
+        
         public ObservableCollection<Brand> ObBrands { get; set; } = new ObservableCollection<Brand>();
         public Command GoToCoffeeCommand { get; set; }
         private readonly IBrandService _brandService;
+        private readonly IHistoryService _historyService;
 
         public ICommand TestCommand { get; set; }
         
-        public HomePageViewModel(IBrandService brandService)
+        public HomePageViewModel(IBrandService brandService, IHistoryService historyService)
         {
             _brandService = brandService;
+            _historyService = historyService;
             
             InitializeCommands();
 
@@ -51,6 +77,12 @@ namespace Coffer.ViewModels
         {
             var newPage = new CoffeeListPage(brand);
             NavigationDispatcher.Instance.Navigation.PushAsync(newPage);
+        }
+
+        public async Task LoadProgress()
+        {
+            TodayIntake = await _historyService.GetTodayCaffeine();
+            Progress = TodayIntake / 300;
         }
 
         private void Test()

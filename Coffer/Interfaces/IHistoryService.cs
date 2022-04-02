@@ -11,5 +11,7 @@ namespace Coffer.Interfaces
         Task<int> SaveHistory(History history);
 
         Task<int> DeleteHistory(History history);
+
+        Task<int> GetTodayCaffeine();
     }
 }

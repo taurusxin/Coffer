@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Coffer.Interfaces;
 using Coffer.Models;
+using Xamarin.Forms;
 
 namespace Coffer.ViewModels
 {
@@ -50,6 +51,7 @@ namespace Coffer.ViewModels
         {
             await _historyService.DeleteHistory(history);
             ObHistories.Remove(history);
+            MessagingCenter.Send(this, "LoadProgress");
             CheckHasItems();
         }
         
@@ -67,6 +69,7 @@ namespace Coffer.ViewModels
             };
             await _historyService.SaveHistory(newHistory);
             ObHistories.Insert(0, newHistory);
+            MessagingCenter.Send(this, "LoadProgress");
             CheckHasItems();
         }
     }

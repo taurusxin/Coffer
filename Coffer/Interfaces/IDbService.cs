@@ -9,6 +9,8 @@ namespace Coffer.Interfaces
         Task<List<Brand>> GetBrandsAsync();
 
         Task<List<Coffee>> GetCoffeeAsync(int brandId);
+        
+        Task<List<Coffee>> GetCoffeeByNameAsync(int brandId, string name);
 
         Task<List<Content>> GetContentAsync(int CoffeeId);
 

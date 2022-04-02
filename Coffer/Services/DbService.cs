@@ -39,6 +39,13 @@ namespace Coffer.Services
             return _sqliteDataConnection.QueryAsync<Coffee>("select * from Coffee where BrandId=?", brandId);
         }
 
+        public Task<List<Coffee>> GetCoffeeByNameAsync(int brandId, string name)
+        {
+            return _sqliteDataConnection.Table<Coffee>()
+                .Where(c => c.BrandId == brandId && c.CoffeeName.ToLower().Contains(name.ToLower()))
+                .ToListAsync();
+        }
+
         public Task<List<Content>> GetContentAsync(int CoffeeId)
         {
             return _sqliteDataConnection.QueryAsync<Content>("select * from Content where CoffeeId=?", CoffeeId);

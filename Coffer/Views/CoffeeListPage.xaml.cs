@@ -31,5 +31,11 @@ namespace Coffer.Views
             var viewModel = BindingContext as CoffeeListPageViewModel;
             viewModel.GoToContentCommand.Execute(viewModel.SelectedCoffee);
         }
+
+        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var viewModel = BindingContext as CoffeeListPageViewModel;
+            viewModel.SearchCoffeeCommand.Execute(e.NewTextValue);
+        }
     }
 }

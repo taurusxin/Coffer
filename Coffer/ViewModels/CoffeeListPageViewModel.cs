@@ -13,8 +13,11 @@ namespace Coffer.ViewModels
         private readonly ICoffeeService _coffeeService;
         
         public Command GoToContentCommand { get; set; }
+        public Command SearchCoffeeCommand { get; set; }
         
         public Coffee SelectedCoffee { get; set; }
+
+        private Brand _brand;
 
         public ObservableCollection<Coffee> ObCoffee { get; set; } = new ObservableCollection<Coffee>();
 
@@ -28,10 +31,12 @@ namespace Coffer.ViewModels
         private void InitializeCommands()
         {
             GoToContentCommand = new Command<Coffee>(NavigateToDetailView);
+            SearchCoffeeCommand = new Command<string>(SearchCoffee);
         }
         public async Task LoadCoffee(Brand brand)
         {
-            //ObCoffee.Clear();
+            _brand = brand;
+            ObCoffee.Clear();
             var currentCoffee = await _coffeeService.GetCoffeeAsync(brand.Id);
             if (currentCoffee.Count > 0)
             {
@@ -43,6 +48,21 @@ namespace Coffer.ViewModels
         {
             var newPage = new CoffeeDetailPage(coffee);
             NavigationDispatcher.Instance.Navigation.PushAsync(newPage);
+        }
+
+        private async void SearchCoffee(string text)
+        {
+            if (text.Trim() == string.Empty)
+            {
+                LoadCoffee(_brand);
+                return;
+            }
+            ObCoffee.Clear();
+            var currentCoffee = await _coffeeService.GetCoffeeByNameAsync(_brand.Id, text);
+            if (currentCoffee.Count > 0)
+            {
+                currentCoffee.ForEach(coffee => ObCoffee.Add(coffee));
+            }
         }
     }
 }

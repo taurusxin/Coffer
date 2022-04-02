@@ -6,7 +6,10 @@
              Title="Coffee">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar Placeholder="Search coffee..."></SearchBar>
+            <SearchBar x:Name="SearchBar" 
+                       Placeholder="Search coffee..."
+                       FontFamily="AN-R"
+                       TextChanged="SearchBar_OnTextChanged"></SearchBar>
             <ListView HorizontalOptions="StartAndExpand"
                       VerticalOptions="FillAndExpand"
                       SeparatorColor="LightGray"

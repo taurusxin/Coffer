@@ -1,5 +1,6 @@
 using Coffer.Interfaces;
 using Coffer.Services;
+using Coffer.Tools;
 using Coffer.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +16,7 @@ namespace Coffer
             services.AddSingleton<ICoffeeService, CoffeeService>();
             services.AddSingleton<IContentService, ContentService>();
             services.AddSingleton<IHistoryService, HistoryService>();
+            services.AddSingleton<Util>();
 
             return services;
         }
@@ -33,6 +35,7 @@ namespace Coffer
             services.AddTransient<CoffeeDetailPageViewModel>();
             services.AddTransient<AddHistoryPageViewModel>();
             services.AddTransient<HistoryPageViewModel>();
+            services.AddTransient<SettingPageViewModel>();
             
             return services;
         }

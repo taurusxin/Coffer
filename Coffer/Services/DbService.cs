@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Coffer.Interfaces;
 using Coffer.Models;
+using Coffer.Tools;
 using SQLite;
 using SQLitePCL;
+
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Coffer.Services
 {
@@ -17,7 +20,7 @@ namespace Coffer.Services
         {
             if (!Settings.Settings.HasDB)
             {
-                Settings.Settings.DownloadDB();
+                IocProvider.ServiceProvider.GetService<Util>().DownloadDB();
             }
             _sqliteDataConnection = new SQLiteAsyncConnection(Constants.DbPath);
             _sqliteUserConnection = new SQLiteAsyncConnection(Constants.UserDbPath, false);

@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Net;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace Coffer.Settings
 {
@@ -18,10 +19,17 @@ namespace Coffer.Settings
             get => File.Exists(Constants.DbPath);
         }
 
-        public static void DownloadDB()
+        public static bool AutoUpdate
         {
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile(new Uri("https://api.icoffer.app/coffer.db3"), Constants.DbPath);
+            get => Preferences.Get(nameof(AutoUpdate), false);
+            set => Preferences.Set(nameof(AutoUpdate), value);
         }
+
+        public static string LatestUpdate
+        {
+            get => Preferences.Get(nameof(LatestUpdate), "Never");
+            set => Preferences.Set(nameof(LatestUpdate), value);
+        }
+
     }
 }

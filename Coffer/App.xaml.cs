@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using Coffer.Navigation;
+using Coffer.Tools;
 using Coffer.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -29,6 +30,11 @@ namespace Coffer
             if (Settings.Settings.FirstRun)
             {
                 Settings.Settings.FirstRun = false;
+            }
+
+            if (Settings.Settings.AutoUpdate)
+            {
+                IocProvider.ServiceProvider.GetService<Util>().DownloadDB();
             }
         }
 

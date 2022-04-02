@@ -27,6 +27,9 @@ namespace Coffer.Views
             // subscribe refresh histories event
             MessagingCenter.Subscribe<AddHistoryPageViewModel>(this, "RefreshHistories", (sender) =>
             {
+                // navigate to history page
+                var tabbedPage = this.Parent as TabbedPage;
+                tabbedPage.CurrentPage = tabbedPage.Children[1];
                 viewModel.LoadHistories();
             });
             

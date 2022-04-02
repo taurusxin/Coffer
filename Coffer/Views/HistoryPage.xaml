@@ -47,6 +47,7 @@
                                                    Invoked="Delete_OnInvoked"/>
                                     </SwipeView.RightItems>
                                     <Frame HasShadow="False"
+                                           CornerRadius="0"
                                            Margin="0"
                                            Padding="8">
                                         <StackLayout Orientation="Horizontal">

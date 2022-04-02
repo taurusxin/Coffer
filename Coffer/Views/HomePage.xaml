@@ -15,7 +15,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout>
+    <StackLayout Margin="0, 10, 0, 0">
         <Frame Margin="10, 0"
                BorderColor="Gainsboro"
                CornerRadius="20"

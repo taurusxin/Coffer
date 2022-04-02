@@ -81,8 +81,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Update Database"
-                    Command="{Binding TestCommand}"></Button>
+            <!-- <Button Text="Update Database" -->
+            <!--         Command="{Binding TestCommand}"></Button> -->
         </StackLayout>
     </StackLayout>
 </ContentPage>

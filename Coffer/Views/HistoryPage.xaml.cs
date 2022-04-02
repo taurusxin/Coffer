@@ -40,7 +40,7 @@ namespace Coffer.Views
             });
         }
 
-        private async void SwipeItem_OnInvoked(object sender, EventArgs e)
+        private async void Delete_OnInvoked(object sender, EventArgs e)
         {
             SwipeItem item = sender as SwipeItem;
             var history = item.BindingContext as History;
@@ -49,6 +49,18 @@ namespace Coffer.Views
             if (confirm == "Confirm")
             {
                 viewModel.ConfirmDelete(history);
+            }
+        }
+
+        private async void Duplicate_OnInvoked(object sender, EventArgs e)
+        {
+            SwipeItem item = sender as SwipeItem;
+            var history = item.BindingContext as History;
+            var viewModel = BindingContext as HistoryPageViewModel;
+            string confirm = await DisplayActionSheet("Add same one again?", "Cancel", null, "Yes!");
+            if (confirm == "Yes!")
+            {
+                viewModel.ConfirmDuplicate(history);
             }
         }
     }

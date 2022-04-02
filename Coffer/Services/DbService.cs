@@ -47,7 +47,7 @@ namespace Coffer.Services
 
         public Task<List<History>> GetHistoriesAsync()
         {
-            return _sqLiteConnection.Table<History>().ToListAsync();
+            return _sqLiteConnection.Table<History>().OrderByDescending(h => h.Id).ToListAsync();
         }
 
         public Task<int> SaveHistory(History history)

@@ -24,12 +24,12 @@
                                     <SwipeView.LeftItems>
                                         <SwipeItem Text="One More!"
                                                    BackgroundColor="Chocolate"
-                                                   Command="{Binding DupliateCommand}" />
+                                                   Invoked="Duplicate_OnInvoked"/>
                                     </SwipeView.LeftItems>
                                     <SwipeView.RightItems>
                                         <SwipeItem Text="Delete"
                                                    BackgroundColor="Red"
-                                                   Invoked="SwipeItem_OnInvoked"/>
+                                                   Invoked="Delete_OnInvoked"/>
                                     </SwipeView.RightItems>
                                     <Frame HasShadow="False"
                                            Margin="0"

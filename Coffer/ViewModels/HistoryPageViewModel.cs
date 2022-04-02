@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Coffer.Interfaces;
@@ -29,7 +30,24 @@ namespace Coffer.ViewModels
         public async void ConfirmDelete(History history)
         {
             await _historyService.DeleteHistory(history);
-            await LoadHistories();
+            ObHistories.Remove(history);
+            // await LoadHistories();
+        }
+        
+        public async void ConfirmDuplicate(History history)
+        {
+            var newHistory = new History
+            {
+                ContentId = history.ContentId,
+                Datetime = DateTime.Now,
+                CoffeeName = history.CoffeeName,
+                Count = history.Count,
+                Size = history.Size,
+                BrandName = history.BrandName,
+                TotalCaffeine = history.TotalCaffeine
+            };
+            await _historyService.SaveHistory(newHistory);
+            ObHistories.Insert(0, newHistory);
         }
     }
 }

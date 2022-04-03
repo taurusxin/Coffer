@@ -48,7 +48,7 @@ namespace Coffer.Services
             }
             catch(Exception e)
             {
-                Debug.Fail(e.Message);
+                return false;
             }
 
             return response.IsSuccessStatusCode;

@@ -184,6 +184,12 @@ namespace Coffer.ViewModels
                           "\nWe will send you a email if the data is merge into database!"
                         , "OK");
                 }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error"
+                        , "Submit failed, please try again."
+                        , "OK");
+                }
             }
             catch (Exception ex)
             {

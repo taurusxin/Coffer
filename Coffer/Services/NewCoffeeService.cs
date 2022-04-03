@@ -19,7 +19,7 @@ namespace Coffer.Services
             HttpClientHandler insecureHandler = GetInsecureHandler();
             _httpClient = new HttpClient(insecureHandler);
 #else
-            HttpClient _httpClient = new HttpClient();
+            _httpClient = new HttpClient();
 #endif
             _httpClient.BaseAddress = new Uri("https://api.icoffer.app/v1/submit/");
             _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");

@@ -16,6 +16,9 @@ namespace Coffer
             services.AddSingleton<ICoffeeService, CoffeeService>();
             services.AddSingleton<IContentService, ContentService>();
             services.AddSingleton<IHistoryService, HistoryService>();
+
+            services.AddSingleton<INewCoffeeService, NewCoffeeService>();
+            
             services.AddSingleton<Util>();
 
             return services;
@@ -36,6 +39,7 @@ namespace Coffer
             services.AddTransient<AddHistoryPageViewModel>();
             services.AddTransient<HistoryPageViewModel>();
             services.AddTransient<SettingPageViewModel>();
+            services.AddTransient<NewCoffeeViewModel>();
             
             return services;
         }

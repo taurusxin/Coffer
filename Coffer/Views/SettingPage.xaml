@@ -31,15 +31,8 @@
                     </TableSection>
                     
                     <TableSection Title="Submit New Data">
-                        <ViewCell Tapped="SubmitNewBrand_Clicked">
-                            <Label Text="New Brand"
-                                   VerticalOptions="Center"
-                                   VerticalTextAlignment="Start"
-                                   Margin="20, 0, 0, 0"
-                                   TextColor="Chocolate"></Label>
-                        </ViewCell>
                         <ViewCell Tapped="SubmitNewCoffee_Clicked">
-                            <Label Text="New Coffee"
+                            <Label Text="Submit New Coffee"
                                    VerticalOptions="Center"
                                    VerticalTextAlignment="Start"
                                    Margin="20, 0, 0, 0"

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Coffer.Views.NewCoffeePage"
+             Title="Submit New Coffee">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Submit"
+                     Clicked="MenuItem_OnClicked" 
+                     Order="Primary"
+                     Priority="0"
+                     IsEnabled="{Binding SubmitEnabled}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="Information">
+                        <EntryCell Label="Brand" Text="{Binding Brand, Mode=TwoWay}"></EntryCell>
+                        <EntryCell Label="Coffee" Text="{Binding Coffee, Mode=TwoWay}"></EntryCell>
+                        <EntryCell Label="Cup Size 1" Text="{Binding Size1, Mode=TwoWay}"></EntryCell>
+                        <EntryCell Label="Caffeine" Text="{Binding Caffeine1, Mode=TwoWay}"></EntryCell>
+                        <EntryCell Label="Cup Size 2" Text="{Binding Size2, Mode=TwoWay}"></EntryCell>
+                        <EntryCell Label="Caffeine" Text="{Binding Caffeine2, Mode=TwoWay}"></EntryCell>
+                        <EntryCell Label="Cup Size 3" Text="{Binding Size3, Mode=TwoWay}"></EntryCell>
+                        <EntryCell Label="Caffeine" Text="{Binding Caffeine3, Mode=TwoWay}"></EntryCell>
+                    </TableSection>
+                    <TableSection Title="More">
+                        <EntryCell Label="More Detail" Text="{Binding More, Mode=TwoWay}"></EntryCell>
+                    </TableSection>
+                    <TableSection Title="About You">
+                        <EntryCell Label="Your E-Mail" Text="{Binding Email, Mode=TwoWay}"></EntryCell>
+                        <TextCell Text="Your privacy is important to us"
+                                  Detail="We will protect your email address"></TextCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

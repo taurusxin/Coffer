@@ -1,8 +1,10 @@
 # Coffer
 
-A mobile app to record caffeine intake
+## Introduction
 
-Avaliable at Testflight
+This is a mobile app that tracks users' daily coffee consumption and records caffeine levels. Adults should not consume more than 300 mg of caffeine per day. The program has built-in coffee brands and their data, and the database can be updated through the Internet or automatically.
+
+Avaliable at Apple TestFlight.
 
 
 

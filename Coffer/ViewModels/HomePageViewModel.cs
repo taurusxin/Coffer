@@ -9,8 +9,11 @@ using Coffer.Interfaces;
 using Coffer.Models;
 using Coffer.Navigation;
 using Coffer.Services;
+using Coffer.Tools;
 using Coffer.Views;
 using Xamarin.Forms;
+
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Coffer.ViewModels
 {
@@ -56,6 +59,11 @@ namespace Coffer.ViewModels
             InitializeCommands();
 
             TestCommand = new Command(Test);
+            
+            MessagingCenter.Subscribe<Util>(this, "ReloadBrands", sender =>
+            {
+                Initialise();
+            });
         }
 
         private void InitializeCommands()

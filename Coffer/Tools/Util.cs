@@ -19,6 +19,7 @@ namespace Coffer.Tools
                 {
                     Settings.Settings.LatestUpdate = DateTime.Now.ToString("yyyy/MM/dd hh:mm");
                     MessagingCenter.Send(this, "UpdateComplete");
+                    MessagingCenter.Send(this, "ReloadBrands");
                 };
             }
             else

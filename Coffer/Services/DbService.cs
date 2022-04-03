@@ -13,8 +13,8 @@ namespace Coffer.Services
 {
     public class DbService : IDbService
     {
-        private readonly SQLiteAsyncConnection _sqliteDataConnection;
-        private readonly SQLiteAsyncConnection _sqliteUserConnection;
+        private SQLiteAsyncConnection _sqliteDataConnection;
+        private SQLiteAsyncConnection _sqliteUserConnection;
         
         public DbService()
         {
@@ -22,14 +22,20 @@ namespace Coffer.Services
             {
                 IocProvider.ServiceProvider.GetService<Util>().DownloadDB();
             }
-            _sqliteDataConnection = new SQLiteAsyncConnection(Constants.DbPath);
-            _sqliteUserConnection = new SQLiteAsyncConnection(Constants.UserDbPath, false);
+            
+            LoadConnection();
 
             _sqliteDataConnection.CreateTableAsync<Brand>().Wait();
             _sqliteDataConnection.CreateTableAsync<Coffee>().Wait();
             _sqliteDataConnection.CreateTableAsync<Content>().Wait();
             
             _sqliteUserConnection.CreateTableAsync<History>().Wait();
+        }
+
+        public void LoadConnection()
+        {
+            _sqliteDataConnection = new SQLiteAsyncConnection(Constants.DbPath);
+            _sqliteUserConnection = new SQLiteAsyncConnection(Constants.UserDbPath, false);
         }
 
         public Task<List<Brand>> GetBrandsAsync()

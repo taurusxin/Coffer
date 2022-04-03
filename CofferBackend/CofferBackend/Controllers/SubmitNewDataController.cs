@@ -24,10 +24,12 @@ public class SubmitNewDataController : ControllerBase
         var res = _dbService.SaveChanges();
         if (res > 0)
         {
+            _logger.LogInformation("Add data successful");
             return Ok("Ok");
         }
         else
         {
+            _logger.LogError("Failed to add data");
             return BadRequest("Error");
         }
     }

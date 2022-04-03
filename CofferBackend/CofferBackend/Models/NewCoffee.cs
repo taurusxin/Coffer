@@ -21,4 +21,6 @@ public class NewCoffee
     public string Caffeine3 { get; set; }
     
     public string More { get; set; }
+    
+    public string Email { get; set; }
 }

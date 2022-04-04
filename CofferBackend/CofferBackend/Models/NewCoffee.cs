@@ -23,4 +23,6 @@ public class NewCoffee
     public string More { get; set; }
     
     public string Email { get; set; }
+    
+    public DateTime Datetime { get; set; }
 }

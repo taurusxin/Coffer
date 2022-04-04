@@ -171,7 +171,8 @@ namespace Coffer.ViewModels
                     Size3 = Size3,
                     Caffeine3 = Caffeine3,
                     More = More,
-                    Email = Email
+                    Email = Email,
+                    Datetime = DateTime.Now
                 };
 
                 var succeded = await _newCoffeeService.SubmitNewCoffee(newCoffee);

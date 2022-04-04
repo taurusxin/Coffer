@@ -1,3 +1,5 @@
+using System;
+
 namespace Coffer.Models
 {
     public class NewCoffee
@@ -17,5 +19,7 @@ namespace Coffer.Models
         public string More { get; set; }
         
         public string Email { get; set; }
+        
+        public DateTime Datetime { get; set; }
     }
 }

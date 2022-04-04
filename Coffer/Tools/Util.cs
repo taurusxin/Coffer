@@ -21,7 +21,7 @@ namespace Coffer.Tools
                 webClient.DownloadFileAsync(new Uri("https://api.icoffer.app/coffer.db3"), Constants.DbPath);
                 webClient.DownloadFileCompleted += (sender, args) =>
                 {
-                    Settings.Settings.LatestUpdate = DateTime.Now.ToString("yyyy/MM/dd hh:mm");
+                    Settings.Settings.LatestUpdate = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
                     MessagingCenter.Send(this, "UpdateComplete");
                     MessagingCenter.Send(this, "ReloadBrands");
                 };

@@ -62,39 +62,36 @@
         <None Include="Properties\AndroidManifest.xml" />
     </ItemGroup>
     <ItemGroup>
+        <AndroidResource Include="Resources\drawable\history.png">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\home.png">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
+        <AndroidResource Include="Resources\drawable\setting.png">
+          <SubType>Designer</SubType>
+          <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+        </AndroidResource>
         <AndroidResource Include="Resources\layout\Tabbar.axml" />
         <AndroidResource Include="Resources\layout\Toolbar.axml" />
         <AndroidResource Include="Resources\mipmap-anydpi-v26\CofferIcon.xml" />
         <AndroidResource Include="Resources\mipmap-hdpi\CofferIcon.png" />
         <AndroidResource Include="Resources\mipmap-hdpi\CofferIcon_adaptive_back.png" />
         <AndroidResource Include="Resources\mipmap-hdpi\CofferIcon_adaptive_fore.png" />
-        <AndroidResource Include="Resources\mipmap-hdpi\history.png" />
-        <AndroidResource Include="Resources\mipmap-hdpi\home.png" />
-        <AndroidResource Include="Resources\mipmap-hdpi\setting.png" />
         <AndroidResource Include="Resources\mipmap-mdpi\CofferIcon.png" />
         <AndroidResource Include="Resources\mipmap-mdpi\CofferIcon_adaptive_back.png" />
         <AndroidResource Include="Resources\mipmap-mdpi\CofferIcon_adaptive_fore.png" />
-        <AndroidResource Include="Resources\mipmap-mdpi\history.png" />
-        <AndroidResource Include="Resources\mipmap-mdpi\home.png" />
-        <AndroidResource Include="Resources\mipmap-mdpi\setting.png" />
         <AndroidResource Include="Resources\mipmap-xhdpi\CofferIcon.png" />
         <AndroidResource Include="Resources\mipmap-xhdpi\CofferIcon_adaptive_back.png" />
         <AndroidResource Include="Resources\mipmap-xhdpi\CofferIcon_adaptive_fore.png" />
-        <AndroidResource Include="Resources\mipmap-xhdpi\history.png" />
-        <AndroidResource Include="Resources\mipmap-xhdpi\home.png" />
-        <AndroidResource Include="Resources\mipmap-xhdpi\setting.png" />
         <AndroidResource Include="Resources\mipmap-xxhdpi\CofferIcon.png" />
         <AndroidResource Include="Resources\mipmap-xxhdpi\CofferIcon_adaptive_back.png" />
         <AndroidResource Include="Resources\mipmap-xxhdpi\CofferIcon_adaptive_fore.png" />
-        <AndroidResource Include="Resources\mipmap-xxhdpi\history.png" />
-        <AndroidResource Include="Resources\mipmap-xxhdpi\home.png" />
-        <AndroidResource Include="Resources\mipmap-xxhdpi\setting.png" />
         <AndroidResource Include="Resources\mipmap-xxxhdpi\CofferIcon.png" />
         <AndroidResource Include="Resources\mipmap-xxxhdpi\CofferIcon_adaptive_back.png" />
         <AndroidResource Include="Resources\mipmap-xxxhdpi\CofferIcon_adaptive_fore.png" />
-        <AndroidResource Include="Resources\mipmap-xxxhdpi\history.png" />
-        <AndroidResource Include="Resources\mipmap-xxxhdpi\home.png" />
-        <AndroidResource Include="Resources\mipmap-xxxhdpi\setting.png" />
         <AndroidResource Include="Resources\values\styles.xml" />
         <AndroidResource Include="Resources\values\colors.xml" />
     </ItemGroup>

@@ -160,7 +160,7 @@
     </ItemGroup>
     <ItemGroup>
       <BundleResource Include="Resources\Icons\history@3x.png" />
-      <BundleResource Include="Resources\Icons\index@3x.png" />
+      <BundleResource Include="Resources\Icons\home@3x.png" />
       <BundleResource Include="Resources\Icons\setting@3x.png" />
       <BundleResource Include="Resources\launch.png" />
     </ItemGroup>

@@ -52,7 +52,7 @@
                                            Padding="8">
                                         <StackLayout Orientation="Horizontal">
                                             <StackLayout Padding="5">
-                                                <Label Text="{Binding Datetime, StringFormat='{}{0:dd/MM/yyyy hh:mm}'}"
+                                                <Label Text="{Binding Datetime, StringFormat='{}{0:yyyy/MM/dd HH:mm}'}"
                                                        Padding="2"
                                                        FontFamily="AN-R"></Label>
                                                 <Label Text="{Binding CoffeeName}"

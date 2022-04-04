@@ -1,5 +1,7 @@
 using System;
+using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -13,6 +15,8 @@ namespace Coffer.Tools
             var hasNetwork = Connectivity.NetworkAccess;
             if (hasNetwork == NetworkAccess.Internet)
             {
+                ServicePointManager.ServerCertificateValidationCallback +=
+                    (sender, certificate, chain, errors) => true;
                 WebClient webClient = new WebClient();
                 webClient.DownloadFileAsync(new Uri("https://api.icoffer.app/coffer.db3"), Constants.DbPath);
                 webClient.DownloadFileCompleted += (sender, args) =>

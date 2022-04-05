@@ -37,7 +37,8 @@
                            FontFamily="AN-R"
                            HorizontalTextAlignment="Center"
                            HorizontalOptions="End"
-                           WidthRequest="80">
+                           WidthRequest="80"
+                           Keyboard="Numeric">
                     </Entry>
                 </StackLayout>
                 

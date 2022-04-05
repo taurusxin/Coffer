@@ -52,7 +52,7 @@ namespace Coffer.ViewModels
 
         private async void SearchCoffee(string text)
         {
-            if (text.Trim() == string.Empty)
+            if (text == null || text.Trim() == string.Empty)
             {
                 LoadCoffee(_brand);
                 return;

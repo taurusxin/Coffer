@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{A20ACC39-3425-4662-90AF-85BDF0E7BE2E}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <RootNamespace>Coffer.Test</RootNamespace>
+        <AssemblyName>Coffer.Test</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Autofac.Extras.Moq" Version="6.1.0" />
+        <PackageReference Include="NUnit" Version="2.6.4" />
+        <PackageReference Include="Xamarin.UITest" Version="2.2.4" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Coffer\Coffer.csproj">
+        <Project>{62f1eca1-856e-48f5-ae9d-271d2e9c5110}</Project>
+        <Name>Coffer</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Include="Services\MockCloudService.cs" />
+      <Compile Include="ViewModels\CoffeeDetailPageViewModelTest.cs" />
+      <Compile Include="ViewModels\CoffeeListPageViewModelTest.cs" />
+      <Compile Include="ViewModels\HistoryPageViewModelTest.cs" />
+      <Compile Include="ViewModels\HomePageViewModelTest.cs" />
+      <Compile Include="ViewModels\CloudServiceTest.cs" />
+    </ItemGroup>
+    <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

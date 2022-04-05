@@ -1,0 +1,13 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9ab5834e_002D28c0_002D4863_002D88de_002Df0b283cea9e0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="InitializeShouldHaveBrands" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit2x::A20ACC39-3425-4662-90AF-85BDF0E7BE2E::.NETFramework,Version=v4.8::Coffer.Test.ViewModels.CoffeeListPageViewModelTest.InitializeShouldHaveCoffee&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit2x::A20ACC39-3425-4662-90AF-85BDF0E7BE2E::.NETFramework,Version=v4.8::Coffer.Test.ViewModels.CoffeeDetailPageViewModelTest.InitializeShouldHaveCoffee&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit2x::A20ACC39-3425-4662-90AF-85BDF0E7BE2E::.NETFramework,Version=v4.8::Coffer.Test.ViewModels.HistoryPageViewModelTest.InitializeShouldHaveHistories&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit2x::A20ACC39-3425-4662-90AF-85BDF0E7BE2E::.NETFramework,Version=v4.8::Coffer.Test.ViewModels.SubmitNewCoffeeShouldBeTrue.InitializeShouldHaveBrands&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit2x::A20ACC39-3425-4662-90AF-85BDF0E7BE2E::.NETFramework,Version=v4.8::Coffer.Test.ViewModels.SubmitNewCoffeeShouldBeTrue&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit2x::A20ACC39-3425-4662-90AF-85BDF0E7BE2E::.NETFramework,Version=v4.8::Coffer.Test.ViewModels.NewCoffeeServiceTest.SubmitNewCoffeeShouldBeTrue&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit2x::A20ACC39-3425-4662-90AF-85BDF0E7BE2E::.NETFramework,Version=v4.8::Coffer.Test.ViewModels.NewCoffeeServiceTest.SubmitNewCoffeeShouldBeFalseWhenNotLoadApplication&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit2x::A20ACC39-3425-4662-90AF-85BDF0E7BE2E::.NETFramework,Version=v4.8::Coffer.Test.ViewModels.CloudServiceTest.DownloadDbShouldPass&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

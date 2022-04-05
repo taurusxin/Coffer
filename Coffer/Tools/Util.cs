@@ -3,12 +3,13 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
+using Coffer.Interfaces;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Coffer.Tools
 {
-    public class Util
+    public class Util : IUtil
     {
         public void DownloadDB()
         {

@@ -9,12 +9,16 @@ namespace Coffer.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var time = DateTime.Now.Hour;
+            if (time < 7)
+            {
+                return "Morning exercise!";
+            }
             if (time > 7 && time < 11)
             {
                 return "Good morning!";
             } else if (time < 13)
             {
-                return "Lunch time";
+                return "Lunch time!";
             } else if (time < 18)
             {
                 return "Good afternoon!";
